@@ -2,7 +2,7 @@
 
 
 // typographic mix
-@mixin typo($font-size, $line-height: normal, $letter-spacing: normal,$text-color,$weight) {
+@mixin typo($font-size, $line-height: normal, $letter-spacing: normal,$color:$text-color,$fontweight:$weight) {
     font-size: $font-size;//value in px
     font-size: calculateRem($font-size);//converted px to rem
 
@@ -19,6 +19,6 @@
       letter-spacing: $letter-spacing;
       letter-spacing: calculateRem($letter-spacing/32);
     }
-    color: $text-color;
-    font-weight: $weight;
+    color: $color;
+    font-weight: $fontweight;
   }

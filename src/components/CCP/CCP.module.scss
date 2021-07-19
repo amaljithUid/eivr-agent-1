@@ -5,6 +5,8 @@
     @include calc(width, '#{$full} - 40px');
     @include box-center(block, auto);
     padding-top: $defaut-padding;
+    background: $black-color;
+    // background: $typo-color;
 
     .row-child {
         @include flex-child(column);
