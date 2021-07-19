@@ -1,8 +1,9 @@
 import { Component } from 'react';
 import React, { useState, useEffect,useRef } from 'react';
 import 'amazon-connect-streams';
-import AWS from 'aws-sdk';
+import Example from './accordion'
 import logo from '../../assets/image-sources/logo.png';
+
 
 function CCP() {
     const containerDiv = useRef(null);
@@ -100,7 +101,8 @@ function CCP() {
                             </div>
                         }
                         <div class="accordian-box">
-                            <div class="accordian">
+                            <Example/>
+                            {/* <div class="accordian">
                                 <div class="accordian-head">
                                     <span class="icon icon-briefcase"></span>
 
@@ -160,7 +162,7 @@ function CCP() {
                                 <div class="accordian-content">
                                     This will be open
                                 </div>
-                            </div>
+                            </div> */}
 
                         </div>
 
