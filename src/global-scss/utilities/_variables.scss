@@ -1,0 +1,34 @@
+//units
+$null : 0;
+$none : none;
+$bordNone:0;
+$full : 100%;
+$unit: 'px';
+// $du:2px;
+$default-unit:2px;
+$defaut-padding:$default-unit * 5;
+$defaut-margin:$default-unit * 5;
+// $defaut-margin:$default-unit*5;
+
+// Fonts 
+
+$primary-font : 'Rubik', sans-serif;
+
+//Colors
+
+$bg-color:#E6F4FF;
+$white-color:#ffffff;
+$black-color:#000000;
+$dark-color:#101531;
+$primary-color:#5a6ad0;
+$secondary-color:#ECC6B7;
+$typo-color:$primary-color;
+$theme-60-color:$bg-color;
+$theme-30-color:$white-color;
+$theme-10-color:$typo-color;
+$shadow-color:#A8B0E4;
+$nutral-color:#E6F4FF;
+$sucess:#9FE2A2;
+$danger:#e64223;
+$warning:#f7a653;
+

@@ -1,0 +1,271 @@
+// @import '../global-scss/global-master-dir';
+
+.master-container {
+
+    @include calc(width, '#{$full} - 40px');
+    @include box-center(block, auto);
+    padding-top: $defaut-padding;
+
+    .row-child {
+        @include flex-child(column);
+
+        @include device(lg) {
+            @include flex-child(row);
+            @include justify-content(space-between);
+
+        }
+
+        &.main-layout {
+            .connect-widget-box {
+                @include flex-item(0, 0, $default-unit*212);
+
+                img {
+                    margin: $defaut-margin $null;
+                }
+
+                .connect-widget {
+                    @include box-style($defaut-padding $defaut-padding,
+                        0,
+                        none,
+                        10px);
+                    background-color: $white-color;
+                    @include box-shadow(0px, 0px, 9px, rgba($shadow-color, .3));
+                }
+            }
+
+            .dashboard-box {
+                @include flex-item(0, 0, calc(#{$full} - #{$default-unit*222}));
+
+                h1 {
+                    @include typo(24px, 30px, normal, $secondary-color, normal);
+                    padding: $defaut-padding $null;
+
+                    b {
+                        color: $typo-color;
+                        font-weight: 600;
+                        margin-right: $defaut-margin/2;
+                    }
+
+                }
+
+                .dashboard {
+                    @include box-style($null,
+                        0,
+                        none,
+                        10px);
+                    background-color: $white-color;
+                    @include box-shadow(0px, 0px, 9px, rgba($shadow-color, .3));
+
+                    .user-details {
+                        padding: $defaut-padding*2.5;
+                        border-bottom: 2px solid rgba($shadow-color, .2);
+                        @include flex-child(row);
+                        @include justify-content(space-between);
+
+                        .details {
+                            padding-left: $defaut-padding*3.5;
+                            position: relative;
+
+                            .icon {
+                                font-size: 28px;
+                                color: $secondary-color;
+                                position: absolute;
+                                left: $null;
+                                top: $null;
+                            }
+
+                            label {
+                                @include typo(16px, 30px, normal, $typo-color, normal);
+                            }
+
+                            h3 {
+                                @include typo(16px, 30px, normal, $black-color, 600);
+                            }
+                        }
+
+                        .system-helth {
+                            padding-left: $defaut-padding*6;
+                            position: relative;
+
+                            .icon {
+                                font-size: 56px;
+                                color: $secondary-color;
+                                position: absolute;
+                                left: $null;
+                                top: $null;
+
+                                &.icon-system-happy {
+                                    &::before {
+                                        color: $sucess;
+                                    }
+                                }
+
+                                &.icon-system-avarage {
+                                    &::before {
+                                        color: $warning;
+                                    }
+                                }
+
+                                &.icon-system-bad {
+                                    &::before {
+                                        color: $danger;
+                                    }
+                                }
+                            }
+
+                            label {
+                                @include typo(16px, 30px, normal, $typo-color, normal);
+                                margin-top: $defaut-margin/3;
+                                display: block;
+                            }
+
+                            .health-progress {
+                                @include flex-child(row);
+                                @include justify-content(space-between);
+
+                                span {
+                                    background-color: $nutral-color;
+                                    width:calc(#{$full/6} - 10px);
+                                    height: $default-unit*2.5;
+                                    display: inline-block;
+                                    @include box-style($defaut-padding/2 $null,
+                                        $defaut-margin - 2 $defaut-margin/2 $null $null,
+                                        none,
+                                        10px);
+
+                                    &:first-child {
+                                        margin-left: $null;
+                                    }
+
+                                    &.active-happy {
+                                        background-color: $sucess;
+                                    }
+
+                                    &.active-avarage {
+                                        background-color: $warning;
+                                    }
+
+                                    &.active-bad {
+                                        background-color: $danger;
+                                    }
+                                }
+
+                                h5 {
+                                    display: inline-block;
+
+                                    &.happy {
+                                        @include typo(16px, 30px, normal, $sucess, normal);
+                                    }
+
+                                    &.avarage {
+                                        @include typo(16px, 30px, normal, $warning, normal);
+                                    }
+
+                                    &.bad {
+                                        @include typo(16px, 30px, normal, $danger, normal);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .accordian-box {
+                        padding: $defaut-padding*2.5;
+
+                        .accordian {
+                            .accordian-head {
+                                @include flex-child(row);
+                                @include justify-content(space-between);
+                                @include align-items(center);
+
+                                >.icon {
+                                    font-size: 36px;
+                                    color: $secondary-color;
+                                }
+
+                                h5 {
+                                    @include flex-item(1, 1, auto);
+                                    @include typo(16px, 30px, normal, $typo-color, normal);
+                                    padding: $defaut-padding;
+                                    position: relative;
+
+                                    >span {
+                                        background-color: $white-color;
+                                        z-index: 99;
+                                        position: relative;
+                                        padding-right: $defaut-padding;
+                                    }
+
+                                    &::before {
+                                        content: '';
+                                        display: inline-block;
+                                        background-color: $secondary-color;
+                                        height: $default-unit;
+                                        width: $full - 10;
+                                        @include v-center();
+                                        right: $null;
+                                        z-index: 9;
+                                    }
+                                }
+
+                                .accordian-trigger {
+                                    >.icon {
+                                        font-size: 56px;
+                                        color: $secondary-color;
+                                    }
+                                }
+                            }
+
+                            .accordian-content {
+                                display: none;
+                                padding-left: $defaut-padding*4.6;
+                            }
+
+                            &.active {
+                                // > .accordian-content{
+                                //     display: block;
+                                // }
+                            }
+                        }
+                    }
+                }
+
+                .service-call-box {
+                    @include flex-child(row);
+                    @include justify-content(flex-start);
+                    padding-top: $defaut-padding*1.5;
+                    button {
+                        @include box-style($defaut-padding 20px,
+                            0,
+                            none,
+                            10px);
+                        @include box-shadow(0px, 0px, 9px, rgba($shadow-color, .3));
+                        @include box($default-unit*100);
+                        background-color: $white-color;
+                        margin-right: $defaut-margin*1.5;
+                        text-align: center;
+                        
+                        .icon {
+                            font-size: 36px;
+                            color: $secondary-color;
+                            display: block;
+                            padding-bottom: $defaut-padding*1.5;
+                        }
+                        label{
+                            @include typo(16px, 30px, normal, $typo-color, normal);
+                        }
+                        &:hover{
+                            background-color: $secondary-color;
+                            .icon{
+                                color: $white-color;
+                            }
+                            label{
+                                color: $white-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

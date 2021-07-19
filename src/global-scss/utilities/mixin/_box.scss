@@ -1,0 +1,65 @@
+
+
+//box-center-margin
+@mixin box-center($display:block, $margin:$margin) {
+  @if $display==block {
+    display: block;
+  }
+
+  @else {
+    display: $display;
+  }
+
+  @if $margin==auto {
+    margin: $null auto;
+  }
+
+}
+
+//box-model
+
+@mixin box($width, $height: $width) {
+  width: $width; //value in px
+  width: calculateRem($width); //converted px to rem
+  height: $height; //value in px
+  height: calculateRem($height); //converted px to rem
+}
+// $box-shadow:$box-shadow
+
+
+
+@mixin box-style($padding:$padAll,$margin:$margAll,$border: $bValue,$radius: $rValue,){
+    padding:$padding;
+    margin:$margin;
+  
+  @if $border!=none{
+    border: $border;
+  }
+
+  @if $radius!=0{
+    @include radius($radius)
+  }
+
+      
+ }
+
+//row-child
+
+@mixin flex-child($direction:column) {
+  @include flexbox();
+  @if $direction==column {
+    @include flex-direction(column);
+  }@else{
+    @include flex-direction(row);
+  }
+
+}
+
+@mixin flex-item($grow:$gval,$shrink:$sval,$basis:auto){
+  @if $basis==auto {
+    @include flex($grow $shrink auto);
+  }@else{
+    // $bvalue:calculateRem($basis);
+    @include flex($grow $shrink $basis);
+  }
+}
