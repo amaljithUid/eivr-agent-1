@@ -56,110 +56,110 @@ function CCP() {
         });
     }
     return (
-        <div class="master-container">
-            <div class="row-child main-layout">
-                <div class="connect-widget-box">
+        <div className="master-container">
+            <div className="row-child main-layout">
+                <div className="connect-widget-box">
                     <img src={logo} />
-                    <div class="connect-widget">
+                    <div className="connect-widget">
                     <div className="containerDiv ccpcontainer" ref={containerDiv} ></div>
                     </div>
                 </div>
-                <div class="dashboard-box">
+                <div className="dashboard-box">
                     <h1><b>EIVR</b>Agent Dashboard</h1>
-                    <div class="dashboard">
+                    <div className="dashboard">
                         {
-                            <div class="user-details">
-                              <div class="details">
-                                  <span class="icon icon-call-calling"></span>
+                            <div className="user-details">
+                              <div className="details">
+                                  <span className="icon icon-call-calling"></span>
                                   <label for="">Phone Number</label>
-                                  <h3 class="phone-number">{contactDetails.phoneNumber?contactDetails.phoneNumber:"--"}</h3>
+                                  <h3 className="phone-number">{contactDetails.phoneNumber?contactDetails.phoneNumber:"--"}</h3>
                               </div>
-                              <div class="details">
-                                  <span class="icon icon-personalcard"></span>
+                              <div className="details">
+                                  <span className="icon icon-personalcard"></span>
                                   <label for="">Contact ID </label>
-                                  <h3 class="contact-id">{contactDetails.contactId?contactDetails.contactId:"--"}</h3>
+                                  <h3 className="contact-id">{contactDetails.contactId?contactDetails.contactId:"--"}</h3>
                               </div>
-                              <div class="details">
-                                  <span class="icon icon-key"></span>
+                              <div className="details">
+                                  <span className="icon icon-key"></span>
                                   <label for="">Authentication</label>
-                                  <h3 class="auth-id">{contactDetails.authenticated?"Yes":"--"}</h3>
+                                  <h3 className="auth-id">{contactDetails.authenticated?"Yes":"--"}</h3>
                               </div>
-                              <div class="details">
-                                  <span class="icon icon-home-hashtag"></span>
+                              <div className="details">
+                                  <span className="icon icon-home-hashtag"></span>
                                   <label for="">Account Number</label>
-                                  <h3 class="account-number">{contactDetails.accountNumber?contactDetails.accountNumber:"--"}</h3>
+                                  <h3 className="account-number">{contactDetails.accountNumber?contactDetails.accountNumber:"--"}</h3>
                               </div>
-                              <div class="system-helth">
-                                  <span class="icon icon-system-happy"></span>
+                              <div className="system-helth">
+                                  <span className="icon icon-system-happy"></span>
                                   <label for="">Sentiment Analysis</label>
-                                  <div class="health-progress">
-                                      <span class="active-happy"></span><span
-                                          class="active-happy"></span><span></span><span></span><span></span>
-                                      <h5 class="happy">Good</h5>
+                                  <div className="health-progress">
+                                      <span className="active-happy"></span><span
+                                          className="active-happy"></span><span></span><span></span><span></span>
+                                      <h5 className="happy">Good</h5>
                                   </div>
                               </div>
                             </div>
                         }
-                        <div class="accordian-box">
+                        <div className="accordian-box">
                             <Example/>
-                            {/* <div class="accordian">
-                                <div class="accordian-head">
-                                    <span class="icon icon-briefcase"></span>
+                            {/* <div className="accordian">
+                                <div className="accordian-head">
+                                    <span className="icon icon-briefcase"></span>
 
                                     <h5><span>Account Details</span></h5>
-                                    <button class="accordian-trigger">
-                                        <span class="icon icon-arrow-square-down"></span>
+                                    <button className="accordian-trigger">
+                                        <span className="icon icon-arrow-square-down"></span>
                                     </button>
                                 </div>
-                                <div class="accordian-content">
+                                <div className="accordian-content">
                                     This will be open
                                 </div>
                             </div>
-                            <div class="accordian">
-                                <div class="accordian-head">
-                                    <span class="icon icon-user-tag"></span>
+                            <div className="accordian">
+                                <div className="accordian-head">
+                                    <span className="icon icon-user-tag"></span>
                                     <h5><span>Customer Details</span></h5>
-                                    <button class="accordian-trigger">
-                                        <span class="icon icon-arrow-square-down"></span>
+                                    <button className="accordian-trigger">
+                                        <span className="icon icon-arrow-square-down"></span>
                                     </button>
                                 </div>
-                                <div class="accordian-content">
+                                <div className="accordian-content">
                                     This will be open
                                 </div>
                             </div>
-                            <div class="accordian">
-                                <div class="accordian-head">
-                                    <span class="icon icon-voice-cricle"></span>
+                            <div className="accordian">
+                                <div className="accordian-head">
+                                    <span className="icon icon-voice-cricle"></span>
                                     <h5><span>Call TraceRecord</span></h5>
-                                    <button class="accordian-trigger">
-                                        <span class="icon icon-arrow-square-down"></span>
+                                    <button className="accordian-trigger">
+                                        <span className="icon icon-arrow-square-down"></span>
                                     </button>
                                 </div>
-                                <div class="accordian-content">
+                                <div className="accordian-content">
                                     This will be open
                                 </div>
                             </div>
-                            <div class="accordian">
-                                <div class="accordian-head">
-                                    <span class="icon icon-receipt-2-1"></span>
+                            <div className="accordian">
+                                <div className="accordian-head">
+                                    <span className="icon icon-receipt-2-1"></span>
                                     <h5><span>Caller History</span></h5>
-                                    <button class="accordian-trigger">
-                                        <span class="icon icon-arrow-square-down"></span>
+                                    <button className="accordian-trigger">
+                                        <span className="icon icon-arrow-square-down"></span>
                                     </button>
                                 </div>
-                                <div class="accordian-content">
+                                <div className="accordian-content">
                                     This will be open
                                 </div>
                             </div>
-                            <div class="accordian">
-                                <div class="accordian-head">
-                                    <span class="icon icon-receipt-edit"></span>
+                            <div className="accordian">
+                                <div className="accordian-head">
+                                    <span className="icon icon-receipt-edit"></span>
                                     <h5><span>Real Time Transcript</span></h5>
-                                    <button class="accordian-trigger">
-                                        <span class="icon icon-arrow-square-down"></span>
+                                    <button className="accordian-trigger">
+                                        <span className="icon icon-arrow-square-down"></span>
                                     </button>
                                 </div>
-                                <div class="accordian-content">
+                                <div className="accordian-content">
                                     This will be open
                                 </div>
                             </div> */}
@@ -170,19 +170,19 @@ function CCP() {
 
                     </div>
 
-                    <div class="service-call-box">
+                    <div className="service-call-box">
                         <button>
-                            <span class="icon icon-keyboard-open"></span>
+                            <span className="icon icon-keyboard-open"></span>
                             <label for="">CCB CRM</label>
                         </button>
                         <button>
-                            <span class="icon icon-bookmark"></span>
+                            <span className="icon icon-bookmark"></span>
                             <label for="">Knowledge Center</label>
                         </button>
-                        <button class="bind-data">
-                            <span class="icon icon-bookmark"></span>
+                        {/* <button className="bind-data">
+                            <span className="icon icon-bookmark"></span>
                             <label for="">Bind Data</label>
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </div>
