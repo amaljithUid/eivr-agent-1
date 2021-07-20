@@ -180,11 +180,22 @@
                         padding: $defaut-padding*2.5;
 
                         .accordian {
+
+                            &.card{
+                                background-color: transparent;
+                                border: none;
+                            }
                             .accordian-head {
+                                &.card-header{
+                                    padding: $null;
+                                    margin: $null;
+                                    background-color: transparent;
+                                    border: none;
+                                }
                                 @include flex-child(row);
                                 @include justify-content(space-between);
                                 @include align-items(center);
-
+                                
                                 >.icon {
                                     font-size: 36px;
                                     color: $secondary-color;
@@ -194,6 +205,7 @@
                                     @include flex-item(1, 1, auto);
                                     @include typo(16px, 30px, normal, $typo-color, normal);
                                     padding: $defaut-padding;
+                                    margin: $null;
                                     position: relative;
 
                                     >span {
@@ -223,8 +235,8 @@
                                 }
                             }
 
-                            .accordian-content {
-                                display: none;
+                            .card-body{
+                                // display: none;
                                 padding-left: $defaut-padding*4.6;
                             }
 
