@@ -14,7 +14,7 @@ function CCP() {
     const [contactDetails, secontactDetails] = useState({});
     const [loading, setLoading] = useState(true);
     const fetchItems = () => {
-        var ccpURL = `https://schoolguard360.awsapps.com/connect/ccp-v2/`;
+        var ccpURL = `https://nlu-musi.awsapps.com/connect/ccp-v2/`;
         ccpURL = `${ccpURL}softphone`;
         // eslint-disable-next-line no-undef
         connect.core.initCCP(containerDiv.current, {
@@ -38,7 +38,7 @@ function CCP() {
                     'Content-Type': 'application/json'
                   }
                 };
-                fetch('https://d3l65qxge7dap6.cloudfront.net/connectkube/agent/callInfo/?contactId=09462ab4-3a8b-4df6-9fdc-152a636ae97b', requestOptions)
+                fetch(`https://d3rkjm938i3x8s.cloudfront.net/connectkube/agent/callInfo/?contactId=${contactID}`, requestOptions)
                   .then(response => response.json())
                   .then(data => {
                     console.log(data);
