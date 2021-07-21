@@ -30,12 +30,13 @@
                         10px);
                     background-color: $white-color;
                     @include box-shadow(0px, 0px, 9px, rgba($shadow-color, .3));
+
                     // display: none;
                     .ccpcontainer {
                         // float: left;
                         width: $full;
                         height: 800px;
-                        
+
                     }
                 }
             }
@@ -181,21 +182,23 @@
 
                         .accordian {
 
-                            &.card{
+                            &.card {
                                 background-color: transparent;
                                 border: none;
                             }
+
                             .accordian-head {
-                                &.card-header{
+                                &.card-header {
                                     padding: $null;
                                     margin: $null;
                                     background-color: transparent;
                                     border: none;
                                 }
+
                                 @include flex-child(row);
                                 @include justify-content(space-between);
                                 @include align-items(center);
-                                
+
                                 >.icon {
                                     font-size: 36px;
                                     color: $secondary-color;
@@ -229,15 +232,36 @@
 
                                 .accordian-trigger {
                                     >.icon {
-                                        font-size: 56px;
+                                        font-size: 38px;
                                         color: $secondary-color;
                                     }
                                 }
                             }
 
-                            .card-body{
+                            .card-body {
                                 // display: none;
-                                padding-left: $defaut-padding*4.6;
+                                margin-left: $defaut-margin*4.6;
+                                margin-right: $defaut-margin*5;
+                                margin-bottom: $defaut-margin*2.5;
+                                background: $theme-60-color;
+                                border: 1px solid darken($theme-60-color, 10%) ;
+                                @include border-radius(10px);
+                                .fetch-data {
+                                    @include flex-child(row);
+                                    @include justify-content(flex-start);
+                                    @include flex-wrap(wrap);
+
+                                    .data-details {
+                                        margin:$defaut-margin*1.5 $defaut-margin*3;
+                                        label {
+                                            @include typo(16px, 30px, normal, $typo-color, normal);
+                                        }
+
+                                        h3 {
+                                            @include typo(16px, 30px, normal, $black-color, 600);
+                                        }
+                                    }
+                                }
                             }
 
                             &.active {
@@ -253,6 +277,7 @@
                     @include flex-child(row);
                     @include justify-content(flex-start);
                     padding-top: $defaut-padding*1.5;
+
                     button {
                         @include box-style($defaut-padding 20px,
                             0,
@@ -263,22 +288,26 @@
                         background-color: $white-color;
                         margin-right: $defaut-margin*1.5;
                         text-align: center;
-                        
+
                         .icon {
                             font-size: 36px;
                             color: $secondary-color;
                             display: block;
                             padding-bottom: $defaut-padding*1.5;
                         }
-                        label{
+
+                        label {
                             @include typo(16px, 30px, normal, $typo-color, normal);
                         }
-                        &:hover{
+
+                        &:hover {
                             background-color: $secondary-color;
-                            .icon{
+
+                            .icon {
                                 color: $white-color;
                             }
-                            label{
+
+                            label {
                                 color: $white-color;
                             }
                         }
