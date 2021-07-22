@@ -10,12 +10,269 @@ function CCP() {
     useEffect(() => {
         fetchItems();
     }, []);
-    const [users, setUsers] = useState([]);
-    const [contactDetails, secontactDetails] = useState({});
-    const [loading, setLoading] = useState(true);
+    const [contactDetails, setContactDetails] = useState({});
+    const [accountDetails, setAccountDetails] = useState({});
+    const [customerDetails, setCustomerDetails] = useState({});
+    const [callTraceRecord, setCallTraceRecord] = useState([]);
+    const [callerHistory, setCallerHistory] = useState([]);
+    const [realtimeTranscript, setRealtimeTranscript] = useState(true);
+    const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
+    const [contactId, setcontactId] = useState('');
+    function handleAccountLookup(event,account,zip){
+        event.preventDefault();
+        console.log(account,zip);
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+        };
+        fetch(`https://d3rkjm938i3x8s.cloudfront.net/connectkube/agent/accountLookup/?account=${account}&contactId=${contactId}&zipcode=${zip}`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            setAccountDetails(data.accountDetailResponse);
+            setCustomerDetails(data.customerDetailResponse);
+         });
+    }
     const fetchItems = () => {
         var ccpURL = `https://nlu-musi.awsapps.com/connect/ccp-v2/`;
         ccpURL = `${ccpURL}softphone`;
+        const accountDetailResponse ={
+            "accountNumber": "1463062238",
+            "amountDue": "-$50.40",
+            "pastAmountDue": "$0.00",
+            "currentAmountDue": "$0.00"
+        }
+        //setAccountDetails(accountDetailResponse);
+
+        const callerHistoryData = [
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            },
+            {
+                "phoneNumber": "8607598008",
+                "timestamp": "2021-07-18T15:16:56.000Z",
+                "callDuration": "0",
+                "contactId": "6f745959-5f58-4228-a0ec-5a2a4f8f753a",
+                "accountNo": "6921991334",
+                "authenticated": true
+            }
+        ]
+        //setCallerHistory(callerHistoryData);
+        const calltraceRecordArray = [
+            "START - PHONE CALL STARTED , scenario - regular, country code : +1 , Phone Event Time : 2021-07-16T11:19:06.000Z",
+            "PHONEPROCESSING - phone processing complete , Phone Event Time : 2021-07-16T11:19:08.000Z",
+            "ACCOUNTPROCESSING - account processing complete , Phone Event Time : 2021-07-16T11:19:10.000Z",
+            "PHONELOOKUP - accountCount - 1 , Phone Event Time : 2021-07-16T11:19:21.000Z",
+            "ACCOUNTLOOKUP - enteredAccount - 6921991334 , result output success , Phone Event Time : 2021-07-16T11:19:38.000Z",
+            "ACCOUNTPROCESSING - account processing complete , Phone Event Time : 2021-07-16T11:19:40.000Z",
+            "ACCOUNTCONFIRM - enteredAccount - 6921991334 , result output success , Phone Event Time : 2021-07-16T11:19:49.000Z",
+            "ZIPCODESAVE - selectedZip - 94121 ,enteredZip - 94121 ,result output success , Phone Event Time : 2021-07-16T11:20:08.000Z",
+            "MENUSELECTION - selectedAccount - 6921991334 ,selectedZip - 94121 ,result output - mainMenuFlow , Phone Event Time : 2021-07-16T11:20:09.000Z",
+            "MAINMENUSTART - main menu start , Phone Event Time : 2021-07-16T11:20:10.000Z",
+            "MAINMENUSTART - main menu start , Phone Event Time : 2021-07-16T11:20:44.000Z"
+        ]
+        //setCallTraceRecord(calltraceRecordArray);
+
+
         // eslint-disable-next-line no-undef
         connect.core.initCCP(containerDiv.current, {
             ccpUrl: ccpURL,
@@ -42,7 +299,38 @@ function CCP() {
                   .then(response => response.json())
                   .then(data => {
                     console.log(data);
-                    secontactDetails(data);
+                    setContactDetails(data);
+                    if(!data.authenticated){
+                        setcontactId(data.contactId);
+                        setIsUserAuthenticated(false);
+                    }else{
+                        setIsUserAuthenticated(true);
+                        fetch(`https://d3rkjm938i3x8s.cloudfront.net/connectkube/agent/accountDetails/?contactId=${data.contactId}`, requestOptions)
+                        .then(response => response.json())
+                        .then(data => {
+                          console.log(data);
+                          setAccountDetails(data);
+                       });
+                       fetch(`https://d3rkjm938i3x8s.cloudfront.net/connectkube/agent/customerDetails/?contactId=${data.contactId}`, requestOptions)
+                        .then(response => response.json())
+                        .then(data => {
+                          console.log(data);
+                          setCustomerDetails(data);
+                       });
+                    }
+                    fetch(`https://d3rkjm938i3x8s.cloudfront.net/connectkube/agent/callTraceRecord/?contactId=${data.contactId}`, requestOptions)
+                     .then(response => response.json())
+                     .then(data => {
+                       console.log(data);
+                       setCallTraceRecord(data);
+                    });
+                    fetch(`https://d3rkjm938i3x8s.cloudfront.net/connectkube/agent/callerHistory/?contactId=${data.contactId}&phoneNumber=${data.phoneNumber}`, requestOptions)
+                    .then(response => response.json())
+                    .then(data => {
+                      console.log(data);
+                      setCallerHistory(data);
+                    });
+                     
                 });
                 // const details ={
                 //   "contactId": "90ead137-083d-4349-8703-a58f4864c5ff",
@@ -101,73 +389,8 @@ function CCP() {
                             </div>
                         }
                         <div className="accordian-box">
-                            <Example/>
-                            {/* <div className="accordian">
-                                <div className="accordian-head">
-                                    <span className="icon icon-briefcase"></span>
-
-                                    <h5><span>Account Details</span></h5>
-                                    <button className="accordian-trigger">
-                                        <span className="icon icon-arrow-square-down"></span>
-                                    </button>
-                                </div>
-                                <div className="accordian-content">
-                                    This will be open
-                                </div>
-                            </div>
-                            <div className="accordian">
-                                <div className="accordian-head">
-                                    <span className="icon icon-user-tag"></span>
-                                    <h5><span>Customer Details</span></h5>
-                                    <button className="accordian-trigger">
-                                        <span className="icon icon-arrow-square-down"></span>
-                                    </button>
-                                </div>
-                                <div className="accordian-content">
-                                    This will be open
-                                </div>
-                            </div>
-                            <div className="accordian">
-                                <div className="accordian-head">
-                                    <span className="icon icon-voice-cricle"></span>
-                                    <h5><span>Call TraceRecord</span></h5>
-                                    <button className="accordian-trigger">
-                                        <span className="icon icon-arrow-square-down"></span>
-                                    </button>
-                                </div>
-                                <div className="accordian-content">
-                                    This will be open
-                                </div>
-                            </div>
-                            <div className="accordian">
-                                <div className="accordian-head">
-                                    <span className="icon icon-receipt-2-1"></span>
-                                    <h5><span>Caller History</span></h5>
-                                    <button className="accordian-trigger">
-                                        <span className="icon icon-arrow-square-down"></span>
-                                    </button>
-                                </div>
-                                <div className="accordian-content">
-                                    This will be open
-                                </div>
-                            </div>
-                            <div className="accordian">
-                                <div className="accordian-head">
-                                    <span className="icon icon-receipt-edit"></span>
-                                    <h5><span>Real Time Transcript</span></h5>
-                                    <button className="accordian-trigger">
-                                        <span className="icon icon-arrow-square-down"></span>
-                                    </button>
-                                </div>
-                                <div className="accordian-content">
-                                    This will be open
-                                </div>
-                            </div> */}
-
+                            <Example accountLookUp={handleAccountLookup} isUserAuth={isUserAuthenticated} callerhistory={callerHistory} accountdetails={accountDetails} customerdetails={customerDetails} calltracerecord={callTraceRecord} realtimetranscript={realtimeTranscript}/>
                         </div>
-
-
-
                     </div>
 
                     <div className="service-call-box">
@@ -179,10 +402,6 @@ function CCP() {
                             <span className="icon icon-bookmark"></span>
                             <label for="">Knowledge Center</label>
                         </button>
-                        {/* <button className="bind-data">
-                            <span className="icon icon-bookmark"></span>
-                            <label for="">Bind Data</label>
-                        </button> */}
                     </div>
                 </div>
             </div>

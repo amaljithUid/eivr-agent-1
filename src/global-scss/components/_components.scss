@@ -244,6 +244,8 @@
                                 margin-right: $defaut-margin*5;
                                 margin-bottom: $defaut-margin*2.5;
                                 background: $theme-60-color;
+                                max-height: 300px;
+                                overflow-y: scroll;
                                 border: 1px solid darken($theme-60-color, 10%) ;
                                 @include border-radius(10px);
                                 .fetch-data {

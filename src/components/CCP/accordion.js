@@ -1,9 +1,18 @@
-import React, { Component } from "react";
+import React, { Component,useState } from "react";
 import { Accordion, Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export class Example extends Component {
-    render() {
+const Example = (props) => {
+    const callerHistoryArray = props.callerhistory;
+    const callTraceRecordArray = props.calltracerecord;
+    const [accountNumber, setAccountNumber] = useState('');
+    const [zipCode, setzipCode] = useState('');
+    const updateAccountNumber = e => {
+        setAccountNumber(e.target.value)
+    }
+    const updateZipCode = e => {
+        setzipCode(e.target.value)
+    }
         return (
 
             <div>
@@ -19,53 +28,36 @@ export class Example extends Component {
 
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
-
-                                <div className="fetch-data">
-
+                            {props.isUserAuth
+                                ? <div className="fetch-data">
                                     <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
+                                        <label for="">Account Number</label>
+                                        <h3>{props.accountdetails.accountNumber?props.accountdetails.accountNumber:'--'}</h3>
                                     </div>
                                     <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
+                                        <label for="">Amount Due</label>
+                                        <h3>{props.accountdetails.amountDue?props.accountdetails.amountDue:'--'}</h3>
                                     </div>
                                     <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
+                                        <label for="">Past Amount Due</label>
+                                        <h3>{props.accountdetails.pastAmountDue?props.accountdetails.pastAmountDue:'--'}</h3>
                                     </div>
                                     <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
+                                        <label for="">Current Amount Due</label>
+                                        <h3>{props.accountdetails.currentAmountDue?props.accountdetails.currentAmountDue:'--'}</h3>
                                     </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-
-
                                 </div>
-
+                                :<div>
+                                    <form onSubmit={(event)=>props.accountLookUp(event,accountNumber,zipCode)}>
+                                        <label>Account No:</label>
+                                        <input type="text" value={accountNumber} onChange={updateAccountNumber} name="accountno" ></input>
+                                        <label>zip:</label>
+                                        <input type="text" value={zipCode} onChange={updateZipCode} name="accountno"></input>
+                                        <button type="submit" value="submit">Submit</button>
+                                    </form>
+                                </div>
+                            }
+                                
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -81,41 +73,22 @@ export class Example extends Component {
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
                                 <div className="fetch-data">
-
                                     <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
+                                        <label for="">Account Status</label>
+                                        <h3>{props.customerdetails.accountStatus?props.customerdetails.accountStatus:'--'}</h3>
                                     </div>
                                     <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
+                                        <label for="">Premise Info</label>
+                                        <h3>{props.customerdetails.premiseInfo?props.customerdetails.premiseInfo:'--'}</h3>
                                     </div>
                                     <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
+                                        <label for="">Full Name</label>
+                                        <h3>{props.customerdetails.fullName?props.customerdetails.fullName:'--'}</h3>
                                     </div>
                                     <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
+                                        <label for="">Customer Class</label>
+                                        <h3>{props.customerdetails.customerClass?props.customerdetails.customerClass:'--'}</h3>
                                     </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-
-
                                 </div>
 
                             </Card.Body>
@@ -133,41 +106,13 @@ export class Example extends Component {
                         <Accordion.Collapse eventKey="2">
                             <Card.Body>
                                 <div className="fetch-data">
-
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-
-
+                                    {
+                                        callTraceRecordArray.map(item=>(
+                                            <div className="data-details">
+                                                <h3>{item}</h3>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
 
                             </Card.Body>
@@ -183,43 +128,37 @@ export class Example extends Component {
                         </Accordion.Toggle>
 
                         <Accordion.Collapse eventKey="3">
-                            <Card.Body><div className="fetch-data">
-
-                                <div className="data-details">
-                                    <label for="">Data label</label>
-                                    <h3>Data fetch here</h3>
-                                </div>
-                                <div className="data-details">
-                                    <label for="">Data label</label>
-                                    <h3>Data fetch here</h3>
-                                </div>
-                                <div className="data-details">
-                                    <label for="">Data label</label>
-                                    <h3>Data fetch here</h3>
-                                </div>
-                                <div className="data-details">
-                                    <label for="">Data label</label>
-                                    <h3>Data fetch here</h3>
-                                </div>
-                                <div className="data-details">
-                                    <label for="">Data label</label>
-                                    <h3>Data fetch here</h3>
-                                </div>
-                                <div className="data-details">
-                                    <label for="">Data label</label>
-                                    <h3>Data fetch here</h3>
-                                </div>
-                                <div className="data-details">
-                                    <label for="">Data label</label>
-                                    <h3>Data fetch here</h3>
-                                </div>
-                                <div className="data-details">
-                                    <label for="">Data label</label>
-                                    <h3>Data fetch here</h3>
-                                </div>
-
-
-                            </div>
+                            <Card.Body>
+                                {                             
+                                     callerHistoryArray.map(item => (
+                                        <div className="fetch-data">
+                                            <div className="data-details">
+                                                <label for="">Phone Number</label>
+                                                <h3>{item.phoneNumber?item.phoneNumber:'--'}</h3>
+                                            </div>
+                                            <div className="data-details">
+                                                <label for="">timestamp</label>
+                                                <h3>{item.timestamp?item.timestamp:'--'}</h3>
+                                            </div>
+                                            <div className="data-details">
+                                                <label for="">callDuration</label>
+                                                <h3>{item.callDuration?item.callDuration:'--'}</h3>
+                                            </div>
+                                            <div className="data-details">
+                                                <label for="">contactId</label>
+                                                <h3>{item.contactId?item.contactId:'--'}</h3>
+                                            </div>
+                                            <div className="data-details">
+                                                <label for="">accountNo</label>
+                                                <h3>{item.accountNo?item.accountNo:'--'}</h3>
+                                            </div>
+                                            <div className="data-details">
+                                                <label for="">authenticated</label>
+                                                <h3>{item.authenticated}</h3>
+                                            </div>
+                                        </div>
+                                      ))
+                                }
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -275,14 +214,10 @@ export class Example extends Component {
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
-
-
-
                 </Accordion>
             </div>
 
         );
-    }
 }
 
 export default Example;
