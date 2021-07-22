@@ -17,7 +17,7 @@ function CCP() {
     const [callTraceRecord, setCallTraceRecord] = useState([]);
     const [callerHistory, setCallerHistory] = useState([]);
     const [realtimeTranscript, setRealtimeTranscript] = useState([]);
-    const [sentiment, setSentiment] = useState('good');
+    const [sentiment, setSentiment] = useState('happy');
     const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
     const [contactId, setcontactId] = useState('');
     function handleAccountLookup(event,account,zip){
@@ -466,9 +466,7 @@ function CCP() {
                                   <h3 className="account-number">{contactDetails.accountNumber?contactDetails.accountNumber:"--"}</h3>
                               </div>
                               <div className="system-helth system-happy">
-                                  <span className="icon icon-system-happy"></span>
-                                  <span className="icon icon-system-avarage"></span>
-                                  <span className="icon icon-system-bad"></span>
+                                  <span className={`icon icon-system-${sentiment.toLowerCase()}`}></span>
                                   <label for="">Sentiment Analysis</label>
                                   <div className="health-progress">
                                       <span className="active-progress"></span>
@@ -476,7 +474,7 @@ function CCP() {
                                       <span></span>
                                       <span></span>
                                       <span></span>
-                                      <h5 className="happy">Good</h5>
+                                      <h5 className={sentiment.toLowerCase()}>{sentiment.toUpperCase()}</h5>
                                   </div>
                               </div>
                             </div>
