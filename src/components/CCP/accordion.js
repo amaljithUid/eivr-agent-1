@@ -174,41 +174,15 @@ const Example = (props) => {
                         <Accordion.Collapse eventKey="4">
                             <Card.Body>
                                 <div className="fetch-data">
-
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-                                    <div className="data-details">
-                                        <label for="">Data label</label>
-                                        <h3>Data fetch here</h3>
-                                    </div>
-
-
+                                    {
+                                        props.realtimetranscript.map(data=>(
+                                            <div className="data-details">
+                                                {
+                                                    data.Transcript.ParticipantRole =='AGENT'?<div><span>{data.Transcript.ParticipantRole} :</span><span>{data.Transcript.Content}</span></div>:<div><span>{data.Transcript.ParticipantRole} :</span><span>{data.Transcript.Content}</span></div>
+                                                }
+                                            </div>
+                                        ))
+                                    }
                                 </div>
 
                             </Card.Body>

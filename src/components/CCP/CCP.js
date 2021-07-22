@@ -15,7 +15,8 @@ function CCP() {
     const [customerDetails, setCustomerDetails] = useState({});
     const [callTraceRecord, setCallTraceRecord] = useState([]);
     const [callerHistory, setCallerHistory] = useState([]);
-    const [realtimeTranscript, setRealtimeTranscript] = useState(true);
+    const [realtimeTranscript, setRealtimeTranscript] = useState([]);
+    const [sentiment, setSentiment] = useState('good');
     const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
     const [contactId, setcontactId] = useState('');
     function handleAccountLookup(event,account,zip){
@@ -45,6 +46,14 @@ function CCP() {
             "currentAmountDue": "$0.00"
         }
         //setAccountDetails(accountDetailResponse);
+        const details ={
+          "contactId": "90ead137-083d-4349-8703-a58f4864c5ff",
+          "phoneNumber": "86075980081234",
+          "accountNumber": "6921991334",
+          "authenticated": true
+        }
+        // secontactDetails(details);
+        // setLoading(false);
 
         const callerHistoryData = [
             {
@@ -271,8 +280,64 @@ function CCP() {
             "MAINMENUSTART - main menu start , Phone Event Time : 2021-07-16T11:20:44.000Z"
         ]
         //setCallTraceRecord(calltraceRecordArray);
-
-
+        const callTRanscript = [
+            {
+                "Transcript": {
+                    "Id": "a27db40e-0fa3-4fc0-894e-eccef7247d98",
+                    "ParticipantId": "AGENT",
+                    "ParticipantRole": "AGENT",
+                    "Content": "Okay?",
+                    "BeginOffsetMillis": 3710,
+                    "EndOffsetMillis": 3920,
+                    "Sentiment": "NEUTRAL"
+                }
+            },
+            {
+                "Transcript": {
+                    "Id": "18abb185-c410-4874-8c0f-c5ce370b1a28",
+                    "ParticipantId": "AGENT",
+                    "ParticipantRole": "AGENT",
+                    "Content": "Alright. Okay. Can you please help me?",
+                    "BeginOffsetMillis": 4670,
+                    "EndOffsetMillis": 12740,
+                    "Sentiment": "NEUTRAL"
+                }
+            },
+            {
+                "Transcript": {
+                    "Id": "7811fd17-3dd4-40a3-a2dd-592fc0c7b544",
+                    "ParticipantId": "CUSTOMER",
+                    "ParticipantRole": "CUSTOMER",
+                    "Content": "Hi. Can you help me?",
+                    "BeginOffsetMillis": 4750,
+                    "EndOffsetMillis": 5930,
+                    "Sentiment": "NEUTRAL"
+                }
+            },
+            {
+                "Transcript": {
+                    "Id": "107207cb-d618-4c57-8f42-b75c1e84394f",
+                    "ParticipantId": "AGENT",
+                    "ParticipantRole": "AGENT",
+                    "Content": "I need a lot of help.",
+                    "BeginOffsetMillis": 14460,
+                    "EndOffsetMillis": 15730,
+                    "Sentiment": "NEUTRAL"
+                }
+            },
+            {
+                "Transcript": {
+                    "Id": "03befe19-d654-4b6a-aeb4-e37ebf025408",
+                    "ParticipantId": "AGENT",
+                    "ParticipantRole": "AGENT",
+                    "Content": "Somebody there.",
+                    "BeginOffsetMillis": 30240,
+                    "EndOffsetMillis": 31090,
+                    "Sentiment": "NEUTRAL"
+                }
+            }
+        ]
+        setRealtimeTranscript(callTRanscript);
         // eslint-disable-next-line no-undef
         connect.core.initCCP(containerDiv.current, {
             ccpUrl: ccpURL,
@@ -330,16 +395,14 @@ function CCP() {
                       console.log(data);
                       setCallerHistory(data);
                     });
-                     
+                    fetch(`https://d3rkjm938i3x8s.cloudfront.net/connectkube/agent/realTimeTranscript/?contactId=${data.contactId}`, requestOptions)
+                    .then(response => response.json())
+                    .then(data => {
+                      console.log(data);
+                      setRealtimeTranscript(data);
+                      setSentiment(data[data.length].Sentiment);
+                    });
                 });
-                // const details ={
-                //   "contactId": "90ead137-083d-4349-8703-a58f4864c5ff",
-                //   "phoneNumber": "86075980081234",
-                //   "accountNumber": "6921991334",
-                //   "authenticated": true
-                // }
-                // secontactDetails(details);
-                // setLoading(false);
             });
         });
     }
