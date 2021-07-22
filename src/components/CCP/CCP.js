@@ -353,7 +353,7 @@ function CCP() {
                 }
             }
         ]
-        setRealtimeTranscript(callTRanscript);
+        //setRealtimeTranscript(callTRanscript);
         // eslint-disable-next-line no-undef
         connect.core.initCCP(containerDiv.current, {
             ccpUrl: ccpURL,
