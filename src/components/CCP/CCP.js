@@ -432,6 +432,16 @@ function CCP() {
                 </div>
                 <div className="dashboard-box">
                     <h1><b>EIVR</b>Agent Dashboard</h1>
+                    <div className="service-call-box">
+                        <button>
+                            <span className="icon icon-keyboard-open"></span>
+                            <label for="">CCB CRM</label>
+                        </button>
+                        <button>
+                            <span className="icon icon-bookmark"></span>
+                            <label for="">Knowledge Center</label>
+                        </button>
+                    </div>
                     <div className="dashboard">
                         {
                             <div className="user-details">
@@ -455,12 +465,17 @@ function CCP() {
                                   <label for="">Account Number</label>
                                   <h3 className="account-number">{contactDetails.accountNumber?contactDetails.accountNumber:"--"}</h3>
                               </div>
-                              <div className="system-helth">
+                              <div className="system-helth system-happy">
                                   <span className="icon icon-system-happy"></span>
+                                  <span className="icon icon-system-avarage"></span>
+                                  <span className="icon icon-system-bad"></span>
                                   <label for="">Sentiment Analysis</label>
                                   <div className="health-progress">
-                                      <span className="active-happy"></span><span
-                                          className="active-happy"></span><span></span><span></span><span></span>
+                                      <span className="active-progress"></span>
+                                      <span className="active-progress"></span>
+                                      <span></span>
+                                      <span></span>
+                                      <span></span>
                                       <h5 className="happy">Good</h5>
                                   </div>
                               </div>
@@ -471,16 +486,7 @@ function CCP() {
                         </div>
                     </div>
 
-                    <div className="service-call-box">
-                        <button>
-                            <span className="icon icon-keyboard-open"></span>
-                            <label for="">CCB CRM</label>
-                        </button>
-                        <button>
-                            <span className="icon icon-bookmark"></span>
-                            <label for="">Knowledge Center</label>
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
         </div>
