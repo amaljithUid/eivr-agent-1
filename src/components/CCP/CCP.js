@@ -10,6 +10,7 @@ function CCP() {
     useEffect(() => {
         fetchItems();
     }, []);
+    const launch = useRef();
     const [contactDetails, setContactDetails] = useState({});
     const [accountDetails, setAccountDetails] = useState({});
     const [customerDetails, setCustomerDetails] = useState({});
@@ -35,6 +36,21 @@ function CCP() {
             setAccountDetails(data.accountDetailResponse);
             setCustomerDetails(data.customerDetailResponse);
          });
+    }
+    function getTranscript(contactId){
+        const requestOptions = {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+        };
+        fetch(`https://d3rkjm938i3x8s.cloudfront.net/connectkube/agent/realTimeTranscript/?contactId=${contactId}`, requestOptions)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          setRealtimeTranscript(data);
+          setSentiment(data[data.length].Sentiment);
+        });
     }
     const fetchItems = () => {
         var ccpURL = `https://nlu-musi.awsapps.com/connect/ccp-v2/`;
@@ -395,15 +411,14 @@ function CCP() {
                       console.log(data);
                       setCallerHistory(data);
                     });
-                    fetch(`https://d3rkjm938i3x8s.cloudfront.net/connectkube/agent/realTimeTranscript/?contactId=${data.contactId}`, requestOptions)
-                    .then(response => response.json())
-                    .then(data => {
-                      console.log(data);
-                      setRealtimeTranscript(data);
-                      setSentiment(data[data.length].Sentiment);
-                    });
+                    clearInterval(launch.current);
+                    launch.current = setInterval(getTranscript(data.contactId), 1000);
                 });
             });
+            contact.onDestroy(function(contact) {
+                console.log("Call ended");
+                clearInterval(launch.current);
+            })
         });
     }
     return (
