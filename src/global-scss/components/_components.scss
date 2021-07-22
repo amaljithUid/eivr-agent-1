@@ -1,5 +1,16 @@
 // @import '../global-scss/global-master-dir';
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p {
+    margin-bottom: $null;
+}
+
 .master-container {
 
     @include calc(width, '#{$full} - 40px');
@@ -20,12 +31,12 @@
                 @include flex-item(0, 0, $default-unit*212);
 
                 img {
-                    margin: $defaut-margin $null;
+                    margin: $defaut-margin*2.5 $null;
                 }
 
                 .connect-widget {
                     @include box-style($defaut-padding $defaut-padding,
-                        0,
+                        $null,
                         none,
                         10px);
                     background-color: $white-color;
@@ -35,7 +46,7 @@
                     .ccpcontainer {
                         // float: left;
                         width: $full;
-                        height: 800px;
+                        height: $default-unit*390;
 
                     }
                 }
@@ -43,10 +54,16 @@
 
             .dashboard-box {
                 @include flex-item(0, 0, calc(#{$full} - #{$default-unit*222}));
+                @include flex-child(row);
+                @include justify-content(space-between);
+                @include align-content(flex-start);
+                @include flex-wrap(wrap);
 
                 h1 {
                     @include typo(24px, 30px, normal, $secondary-color, normal);
-                    padding: $defaut-padding $null;
+                    // padding: $defaut-padding $null;
+                    margin-bottom: $null;
+                    @include align-self(center);
 
                     b {
                         color: $typo-color;
@@ -57,6 +74,8 @@
                 }
 
                 .dashboard {
+                    @include flex-item(0, 0, $full);
+
                     @include box-style($null,
                         0,
                         none,
@@ -66,9 +85,11 @@
 
                     .user-details {
                         padding: $defaut-padding*2.5;
+                        padding-bottom: $defaut-padding;
                         border-bottom: 2px solid rgba($shadow-color, .2);
                         @include flex-child(row);
                         @include justify-content(space-between);
+                        @include align-items(center);
 
                         .details {
                             padding-left: $defaut-padding*3.5;
@@ -121,6 +142,8 @@
                                 }
                             }
 
+
+
                             label {
                                 @include typo(16px, 30px, normal, $typo-color, normal);
                                 margin-top: $defaut-margin/3;
@@ -145,35 +168,90 @@
                                         margin-left: $null;
                                     }
 
-                                    &.active-happy {
+
+                                }
+
+                                // h5 {
+                                //     display: inline-block;
+
+                                //     &.happy {
+                                //         @include typo(16px, 30px, normal, $sucess, normal);
+                                //     }
+
+                                //     &.avarage {
+                                //         @include typo(16px, 30px, normal, $warning, normal);
+                                //     }
+
+                                //     &.bad {
+                                //         @include typo(16px, 30px, normal, $danger, normal);
+                                //     }
+                                // }
+                            }
+
+                            &.system-happy {
+                                .icon {
+                                    display: none;
+                                }
+
+                                .icon-system-happy {
+                                    display: inline-block;
+                                }
+
+                                .health-progress {
+                                    .active-progress {
                                         background-color: $sucess;
                                     }
+                                }
+                                h5{
+                                    @include typo(16px, 30px, normal, $sucess, normal);
+                                }
 
-                                    &.active-avarage {
+
+                            }
+
+                            &.system-avarage {
+                                .icon {
+                                    display: none;
+                                }
+
+                                .icon-system-avarage {
+                                    display: inline-block;
+                                }
+
+                                .health-progress {
+                                    .active-progress {
                                         background-color: $warning;
                                     }
 
-                                    &.active-bad {
+                                    h5{
+                                        @include typo(16px, 30px, normal, $warning, normal);
+                                    }
+                                }
+
+
+                            }
+
+                            &.system-bad {
+                                .icon {
+                                    display: none;
+                                }
+
+                                .icon-system-bad {
+                                    display: inline-block;
+                                }
+
+                                .health-progress {
+                                    .active-progress {
                                         background-color: $danger;
                                     }
                                 }
 
-                                h5 {
-                                    display: inline-block;
-
-                                    &.happy {
-                                        @include typo(16px, 30px, normal, $sucess, normal);
-                                    }
-
-                                    &.avarage {
-                                        @include typo(16px, 30px, normal, $warning, normal);
-                                    }
-
-                                    &.bad {
-                                        @include typo(16px, 30px, normal, $danger, normal);
-                                    }
+                                h5{
+                                    @include typo(16px, 30px, normal, $danger, normal);
                                 }
+
                             }
+
                         }
                     }
 
@@ -193,6 +271,7 @@
                                     margin: $null;
                                     background-color: transparent;
                                     border: none;
+                                    margin-bottom: $defaut-margin;
                                 }
 
                                 @include flex-child(row);
@@ -243,18 +322,20 @@
                                 margin-left: $defaut-margin*4.6;
                                 margin-right: $defaut-margin*5;
                                 margin-bottom: $defaut-margin*2.5;
-                                background: $theme-60-color;
+                                background: lighten($theme-60-color, 4%);
                                 max-height: 300px;
                                 overflow-y: scroll;
-                                border: 1px solid darken($theme-60-color, 10%) ;
+                                border: 2px solid darken($theme-60-color, 4%);
                                 @include border-radius(10px);
+
                                 .fetch-data {
                                     @include flex-child(row);
                                     @include justify-content(flex-start);
                                     @include flex-wrap(wrap);
 
                                     .data-details {
-                                        margin:$defaut-margin*1.5 $defaut-margin*3;
+                                        margin: $defaut-margin*1.5 $defaut-margin*3;
+
                                         label {
                                             @include typo(16px, 30px, normal, $typo-color, normal);
                                         }
@@ -263,6 +344,123 @@
                                             @include typo(16px, 30px, normal, $black-color, 600);
                                         }
                                     }
+
+                                    &.form {
+                                        .data-details {
+                                            @include flex-child(column);
+                                            @include justify-content(flex-start);
+                                            margin: $null;
+                                            margin-right: $defaut-margin*2;
+                                            // &:first-child{
+
+                                            // }
+
+                                            &.button-box {
+                                                @include flex-child(row);
+                                                @include justify-content(flex-end);
+                                                @include align-items(flex-end);
+
+                                                span {
+                                                    padding: $defaut-padding;
+                                                    @include typo(16px, 30px, normal, darken($theme-60-color, 10%), normal);
+                                                }
+
+                                            }
+                                        }
+                                    }
+
+                                    &.chat-box {
+                                        @include flex-child(column);
+                                        @include justify-content(flex-start);
+                                        margin: $null;
+
+                                        .data-details {
+                                            @include flex-child(column);
+                                            @include justify-content(flex-start);
+                                            margin: $null;
+
+                                            .agent-chat-box {
+                                                @include flexbox();
+                                                @include justify-content(flex-start);
+                                                @include align-self(flex-end);
+                                                @include align-items(flex-start);
+                                                @include align-content(flex-start);
+                                                @include box-style($defaut-padding,
+                                                    0,
+                                                    2px solid darken($theme-60-color, 2%),
+                                                    10px);
+                                                background-color: $white-color;
+                                                @include typo(16px, 24px, normal, $typo-color, normal);
+                                                margin-bottom: $defaut-margin;
+                                                margin-left: $defaut-margin*10;
+
+                                                span {
+                                                    margin-top: 6px;
+                                                    margin-left: $defaut-margin;
+                                                }
+
+                                                .agent-role {
+                                                    font-size: 0px;
+                                                    line-height: 1rem;
+                                                    @include box-style(3px $defaut-padding,
+                                                        0,
+                                                        2px solid darken($theme-60-color, 2%),
+                                                        $null $defaut-margin $null $null);
+                                                    background-color: $theme-60-color;
+                                                    @include border-radius(50px);
+
+
+                                                    &::first-letter {
+                                                        @include typo(16px, 24px, normal, $typo-color, normal);
+
+                                                    }
+                                                }
+                                            }
+
+                                            .user-chat-box {
+                                                @include flexbox();
+                                                @include justify-content(flex-start);
+                                                @include align-self(flex-start);
+                                                @include align-items(flex-start);
+                                                @include align-content(flex-start);
+                                                @include box-style($defaut-padding,
+                                                    0,
+                                                    2px solid darken($theme-60-color, 2%),
+                                                    10px);
+                                                background-color: $white-color;
+                                                @include typo(16px, 24px, normal, $typo-color, normal);
+                                                margin-bottom: $defaut-margin;
+                                                margin-right: $defaut-margin*10;
+
+                                                span {
+                                                    margin-top: 6px;
+                                                    margin-left: $defaut-margin;
+                                                }
+
+
+                                                .user-role {
+
+                                                    font-size: 0px;
+                                                    line-height: 1rem;
+                                                    @include box-style(3px $defaut-padding,
+                                                        0,
+                                                        2px solid darken($theme-60-color, 2%),
+                                                        $null $defaut-margin $null $null);
+                                                    background-color: $theme-60-color;
+                                                    @include border-radius(50px);
+
+
+                                                    &::first-letter {
+                                                        @include typo(16px, 24px, normal, $typo-color, normal);
+
+                                                    }
+                                                }
+                                            }
+                                        }
+
+
+                                    }
+
                                 }
                             }
 
@@ -278,28 +476,39 @@
                 .service-call-box {
                     @include flex-child(row);
                     @include justify-content(flex-start);
+                    // @include align-self(flex-end);
+                    // @include align-items(flex-end);
+                    // @include align-content(flex-end);
                     padding-top: $defaut-padding*1.5;
+                    margin-bottom: $defaut-margin*2;
 
                     button {
+                        @include flex-child(row);
+                        @include justify-content(space-between);
+                        @include align-items(center);
                         @include box-style($defaut-padding 20px,
                             0,
                             none,
                             10px);
                         @include box-shadow(0px, 0px, 9px, rgba($shadow-color, .3));
-                        @include box($default-unit*100);
-                        background-color: $white-color;
+                        // @include box($default-unit*100);
+                        background-color: $primary-color;
                         margin-right: $defaut-margin*1.5;
                         text-align: center;
 
                         .icon {
-                            font-size: 36px;
-                            color: $secondary-color;
+                            font-size: 28px;
+                            color: $white-color;
                             display: block;
-                            padding-bottom: $defaut-padding*1.5;
+                            padding-right: $defaut-padding;
                         }
 
                         label {
-                            @include typo(16px, 30px, normal, $typo-color, normal);
+                            @include typo(16px, 30px, normal, $white-color, normal);
+                        }
+
+                        &:last-child {
+                            margin-right: $null;
                         }
 
                         &:hover {
