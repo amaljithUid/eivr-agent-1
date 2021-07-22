@@ -1,0 +1,21 @@
+.input-text{
+    @include box-style($defaut-padding,
+                            0,
+                            2px solid darken($theme-60-color, 4%),
+                            10px);
+    &:focus{
+        border: 2px solid darken($theme-60-color, 30%);
+        outline: none;
+    }                            
+
+}
+
+.submit-button{
+    @include box-style($defaut-padding $defaut-padding*2,
+                            0,
+                            none,
+                            10px);
+                            background-color: $typo-color;
+                            @include typo(16px, 30px, normal, $white-color, normal);
+
+}
