@@ -141,36 +141,38 @@ const Example = (props) => {
 
                     <Accordion.Collapse eventKey="3">
                         <Card.Body>
-                            {
-                                callerHistoryArray.map(item => (
+                           
                                     <div className="fetch-data">
-                                        <div className="data-details">
-                                            <label for="">Phone Number</label>
-                                            <h3>{item.phoneNumber ? item.phoneNumber : '--'}</h3>
-                                        </div>
-                                        <div className="data-details">
-                                            <label for="">timestamp</label>
-                                            <h3>{item.timestamp ? item.timestamp : '--'}</h3>
-                                        </div>
-                                        {/* <div className="data-details">
-                                            <label for="">callDuration</label>
-                                            <h3>{item.callDuration ? item.callDuration : '--'}</h3>
-                                        </div> */}
-                                        <div className="data-details">
-                                            <label for="">contactId</label>
-                                            <h3>{item.contactId ? item.contactId : '--'}</h3>
-                                        </div>
-                                        {/* <div className="data-details">
-                                            <label for="">accountNo</label>
-                                            <h3>{item.accountNo ? item.accountNo : '--'}</h3>
-                                        </div> */}
-                                        {/* <div className="data-details">
-                                            <label for="">authenticated</label>
-                                            <h3>{item.authenticated}</h3>
-                                        </div> */}
+                                        <table>
+                                            <tr>
+                                                <th>Phone Number</th>
+                                                <th>timestamp</th>
+                                                <th>contactId</th>
+                                            </tr>
+                                            {
+                                                callerHistoryArray.map(item => (
+                                                    <tr>
+                                                        <td>
+                                                            <div className="data-details">
+                                                                <h3>{item.phoneNumber ? item.phoneNumber : '--'}</h3>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div className="data-details">
+                                                                <h3>{item.timestamp ? item.timestamp : '--'}</h3>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div className="data-details">
+                                                                <h3>{item.contactId ? item.contactId : '--'}</h3>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                ))
+                                            }
+                                        </table>
                                     </div>
-                                ))
-                            }
+                                
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>

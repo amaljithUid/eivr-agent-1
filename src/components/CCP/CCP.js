@@ -18,7 +18,7 @@ function CCP() {
     const [callerHistory, setCallerHistory] = useState([]);
     const [realtimeTranscript, setRealtimeTranscript] = useState([]);
     const [sentiment, setSentiment] = useState('happy');
-    const [isUserAuthenticated, setIsUserAuthenticated] = useState(true);
+    const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
     const [contactId, setcontactId] = useState('');
     function handleAccountLookup(event,account,zip){
         event.preventDefault();
@@ -61,14 +61,14 @@ function CCP() {
             "pastAmountDue": "$0.00",
             "currentAmountDue": "$0.00"
         }
-        //setAccountDetails(accountDetailResponse);
+        setAccountDetails(accountDetailResponse);
         const details ={
           "contactId": "90ead137-083d-4349-8703-a58f4864c5ff",
           "phoneNumber": "86075980081234",
           "accountNumber": "6921991334",
           "authenticated": true
         }
-        // secontactDetails(details);
+         //secontactDetails(details);
         // setLoading(false);
 
         const callerHistoryData = [
@@ -353,7 +353,9 @@ function CCP() {
                 }
             }
         ]
-        //setRealtimeTranscript(callTRanscript);
+        setRealtimeTranscript(callTRanscript);
+
+
         // eslint-disable-next-line no-undef
         connect.core.initCCP(containerDiv.current, {
             ccpUrl: ccpURL,
