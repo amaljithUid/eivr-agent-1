@@ -370,6 +370,7 @@ function CCP() {
             });
             contact.onConnected(function (c) {
                 var contactID = contact.contactId;
+                setcontactId(contactID);
                 const requestOptions = {
                   method: 'GET',
                   headers: {
@@ -381,8 +382,7 @@ function CCP() {
                   .then(data => {
                     console.log(data);
                     setContactDetails(data);
-                    if(!data.authenticated){
-                        setcontactId(data.contactId);
+                    if(!data.authenticated){  
                         setIsUserAuthenticated(false);
                     }else{
                         setIsUserAuthenticated(true);
@@ -412,7 +412,7 @@ function CCP() {
                       setCallerHistory(data);
                     });
                     clearInterval(launch.current);
-                    launch.current = setInterval(getTranscript(data.contactId), 1000);
+                    launch.current = setInterval(getTranscript(data.contactId), 10*1000);
                 });
             });
             contact.onDestroy(function(contact) {
