@@ -46,7 +46,7 @@ p {
                     .ccpcontainer {
                         // float: left;
                         width: $full;
-                        height: $default-unit*390;
+                        height: $default-unit*283;
 
                     }
                 }
@@ -431,10 +431,10 @@ p {
                                                     @include border-radius(50px);
 
 
-                                                    &::first-letter {
-                                                        @include typo(16px, 24px, normal, $typo-color, normal);
+                                                    // &::first-letter {
+                                                       @include typo(16px, 24px, normal, $typo-color, normal);
 
-                                                    }
+                                                    // }
                                                 }
                                             }
 
@@ -471,10 +471,10 @@ p {
                                                     @include border-radius(50px);
 
 
-                                                    &::first-letter {
+                                                    //&::first-letter {
                                                         @include typo(16px, 24px, normal, $typo-color, normal);
 
-                                                    }
+                                                    //}
                                                 }
                                             }
                                         }

@@ -3,7 +3,7 @@ import React, { useState, useEffect,useRef } from 'react';
 import 'amazon-connect-streams';
 import Example from './accordion'
 import logo from '../../assets/image-sources/logo.png';
-
+import AWS from 'aws-sdk/global';
 
 function CCP() {
     const containerDiv = useRef(null);
@@ -37,6 +37,13 @@ function CCP() {
             setCustomerDetails(data.customerDetailResponse);
          });
     }
+    const logout = (e) => {                  
+        e.preventDefault();
+        if (AWS.config.credentials) {
+            AWS.config.credentials.clearCachedId(); // this is the clear session
+            AWS.config.credentials = new AWS.CognitoIdentityCredentials({}); // this is the new instance after the clear
+        } 
+    };
     function getTranscript(contactId){
         const requestOptions = {
             method: 'GET',
@@ -443,9 +450,9 @@ function CCP() {
                             <span className="icon icon-bookmark"></span>
                             <label for="">Knowledge Center</label>
                         </a>
-                        <a href="#">
-                            <span className="icon icon-bookmark"></span>
-                            <label for="">Feedback</label>
+                        <a href="#" onClick={e => logout(e)}>
+                            <span className="icon icon-user-tag"></span>
+                            <label for="">Logout</label>
                         </a>
                     </div>
                     <div className="dashboard">

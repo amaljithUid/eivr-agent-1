@@ -141,38 +141,24 @@ const Example = (props) => {
 
                     <Accordion.Collapse eventKey="3">
                         <Card.Body>
-                           
+                            {
+                                callerHistoryArray.map(item => (
                                     <div className="fetch-data">
-                                        <table>
-                                            <tr>
-                                                <th>Phone Number</th>
-                                                <th>timestamp</th>
-                                                <th>contactId</th>
-                                            </tr>
-                                            {
-                                                callerHistoryArray.map(item => (
-                                                    <tr>
-                                                        <td>
-                                                            <div className="data-details">
-                                                                <h3>{item.phoneNumber ? item.phoneNumber : '--'}</h3>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div className="data-details">
-                                                                <h3>{item.timestamp ? item.timestamp : '--'}</h3>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div className="data-details">
-                                                                <h3>{item.contactId ? item.contactId : '--'}</h3>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                ))
-                                            }
-                                        </table>
+                                        <div className="data-details">
+                                            <label for="">Phone Number</label>
+                                            <h3>{item.phoneNumber ? item.phoneNumber : '--'}</h3>
+                                        </div>
+                                        <div className="data-details">
+                                            <label for="">timestamp</label>
+                                            <h3>{item.timestamp ? item.timestamp : '--'}</h3>
+                                        </div>
+                                        <div className="data-details">
+                                            <label for="">contactId</label>
+                                            <h3>{item.contactId ? item.contactId : '--'}</h3>
+                                        </div>
                                     </div>
-                                
+                                ))
+                            }
                         </Card.Body>
                     </Accordion.Collapse>
                 </Card>
@@ -192,7 +178,7 @@ const Example = (props) => {
                                     props.realtimetranscript.map(data => (
                                         <div className="data-details">
                                             {
-                                                data.Transcript.ParticipantRole == 'AGENT' ? <div className="agent-chat-box"><span className='agent-role'>{data.Transcript.ParticipantRole} :</span><span>{data.Transcript.Content}</span></div> : <div className="user-chat-box"><span className='user-role'>{data.Transcript.ParticipantRole} :</span><span>{data.Transcript.Content}</span></div>
+                                                data.Transcript.ParticipantRole == 'AGENT' ? <div className="agent-chat-box"><span className='agent-role'>Agent :</span><span>{data.Transcript.Content}</span></div> : <div className="user-chat-box"><span className='user-role'>Customer :</span><span>{data.Transcript.Content}</span></div>
                                             }
                                         </div>
                                     ))
