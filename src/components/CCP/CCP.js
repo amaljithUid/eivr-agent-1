@@ -39,10 +39,13 @@ function CCP() {
     }
     const logout = (e) => {                  
         e.preventDefault();
-        if (AWS.config.credentials) {
-            AWS.config.credentials.clearCachedId(); // this is the clear session
-            AWS.config.credentials = new AWS.CognitoIdentityCredentials({}); // this is the new instance after the clear
-        } 
+        fetch("https://nlu-musi.awsapps.com/connect/logout", { credentials: 'include', mode: 'no-cors'})
+        .then(() => {
+            // eslint-disable-next-line no-undef
+            const eventBus = connect.core.getEventBus();
+            // eslint-disable-next-line no-undef
+            eventBus.trigger(connect.EventType.TERMINATE);
+        });
     };
     function getTranscript(contactId){
         const requestOptions = {
