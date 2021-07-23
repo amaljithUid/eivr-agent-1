@@ -60,7 +60,7 @@ p {
                 @include flex-wrap(wrap);
 
                 h1 {
-                    @include typo(24px, 30px, normal, $secondary-color, normal);
+                    @include typo(24px, 30px, normal, $typo-color, normal);
                     // padding: $defaut-padding $null;
                     margin-bottom: $null;
                     @include align-self(center);
@@ -202,7 +202,8 @@ p {
                                         background-color: $sucess;
                                     }
                                 }
-                                h5{
+
+                                h5 {
                                     @include typo(16px, 30px, normal, $sucess, normal);
                                 }
 
@@ -223,7 +224,7 @@ p {
                                         background-color: $warning;
                                     }
 
-                                    h5{
+                                    h5 {
                                         @include typo(16px, 30px, normal, $warning, normal);
                                     }
                                 }
@@ -246,7 +247,7 @@ p {
                                     }
                                 }
 
-                                h5{
+                                h5 {
                                     @include typo(16px, 30px, normal, $danger, normal);
                                 }
 
@@ -319,13 +320,14 @@ p {
 
                             .card-body {
                                 // display: none;
+                                padding:$defaut-margin - 2.5  $defaut-padding*1.5;
                                 margin-left: $defaut-margin*4.6;
                                 margin-right: $defaut-margin*5;
                                 margin-bottom: $defaut-margin*2.5;
-                                background: lighten($theme-60-color, 4%);
+                                background: lighten($theme-60-color, 4.5%);
                                 max-height: 300px;
-                                overflow-y: scroll;
-                                border: 2px solid darken($theme-60-color, 4%);
+                                overflow-y: auto;
+                                border: 2px solid lighten($theme-60-color, 1%);
                                 @include border-radius(10px);
 
                                 .fetch-data {
@@ -334,14 +336,33 @@ p {
                                     @include flex-wrap(wrap);
 
                                     .data-details {
-                                        margin: $defaut-margin*1.5 $defaut-margin*3;
+                                        margin: $defaut-margin - 2.5 $defaut-margin*1.5;
+                                        margin-bottom: $null;
+                                        &:first-child{
+                                            margin-left: $null;
+                                        }
 
                                         label {
-                                            @include typo(16px, 30px, normal, $typo-color, normal);
+                                            @include typo(14px, 30px, normal, $typo-color, normal);
+                                            text-transform: uppercase;
+                                            
+                                            // margin-bottom: $defaut-margin;
+                                            
                                         }
 
                                         h3 {
-                                            @include typo(16px, 30px, normal, $black-color, 600);
+                                            @include typo(16px, 30px, normal, $black-color, 500);
+                                            margin-bottom: $defaut-margin*1.5;
+                                            position: relative;
+                                            &::before{
+                                                content: '';
+                                                display: block;
+                                                @include v-center();
+                                                width: $default-unit*10;
+                                                height: $default-unit;
+                                                background-color: $secondary-color;
+                                                top: $full;
+                                            }
                                         }
                                     }
 
@@ -461,6 +482,45 @@ p {
 
                                     }
 
+                                    &.trace-records {
+                                        .data-details {
+                                            margin: $null;
+                                            width: $full;
+                                            padding-top: $defaut-padding;
+                                            padding-bottom: $defaut-padding;
+                                            border-bottom: 2px solid darken($theme-60-color, 4%);
+                                            @include flexbox();
+                                            @include flex-child(row);
+                                            @include justify-content(flex-start);
+
+                                            &:last-child {
+                                                border-bottom: none;
+                                            }
+
+                                            label {
+                                                @include typo(16px, 30px, normal, $typo-color, normal);
+                                            }
+
+                                            h3 {
+                                                @include typo(16px, 30px, normal, $black-color, 500);
+                                                margin-bottom: $null;
+                                            }
+
+                                            .icon {
+                                                font-size: 18px;
+                                                line-height: 25px;
+                                                color: $secondary-color;
+                                                display: inline-block;
+                                                padding-right: $defaut-padding;
+                                            }
+
+                                            p {
+                                                @include typo(16px, 30px, normal, $typo-color, normal);
+                                                margin-bottom: $null;
+                                            }
+                                        }
+                                    }
+
                                 }
                             }
 
@@ -482,7 +542,7 @@ p {
                     padding-top: $defaut-padding*1.5;
                     margin-bottom: $defaut-margin*2;
 
-                    button {
+                    button,a {
                         @include flex-child(row);
                         @include justify-content(space-between);
                         @include align-items(center);
@@ -495,16 +555,18 @@ p {
                         background-color: $primary-color;
                         margin-right: $defaut-margin*1.5;
                         text-align: center;
-
+                        cursor: pointer;
                         .icon {
                             font-size: 28px;
                             color: $white-color;
                             display: block;
                             padding-right: $defaut-padding;
+                            cursor: pointer;
                         }
 
                         label {
                             @include typo(16px, 30px, normal, $white-color, normal);
+                            cursor: pointer;
                         }
 
                         &:last-child {
