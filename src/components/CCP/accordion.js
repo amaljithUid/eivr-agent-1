@@ -116,11 +116,12 @@ const Example = (props) => {
 
                     <Accordion.Collapse eventKey="2">
                         <Card.Body>
-                            <div className="fetch-data">
+                            <div className="fetch-data trace-records">
                                 {
                                     callTraceRecordArray.map(item => (
                                         <div className="data-details">
-                                            <h3>{item}</h3>
+                                            <span className="icon icon-archive-book"></span>
+                                            <p>{item}</p>
                                         </div>
                                     ))
                                 }
@@ -151,22 +152,22 @@ const Example = (props) => {
                                             <label for="">timestamp</label>
                                             <h3>{item.timestamp ? item.timestamp : '--'}</h3>
                                         </div>
-                                        <div className="data-details">
+                                        {/* <div className="data-details">
                                             <label for="">callDuration</label>
                                             <h3>{item.callDuration ? item.callDuration : '--'}</h3>
-                                        </div>
+                                        </div> */}
                                         <div className="data-details">
                                             <label for="">contactId</label>
                                             <h3>{item.contactId ? item.contactId : '--'}</h3>
                                         </div>
-                                        <div className="data-details">
+                                        {/* <div className="data-details">
                                             <label for="">accountNo</label>
                                             <h3>{item.accountNo ? item.accountNo : '--'}</h3>
-                                        </div>
-                                        <div className="data-details">
+                                        </div> */}
+                                        {/* <div className="data-details">
                                             <label for="">authenticated</label>
                                             <h3>{item.authenticated}</h3>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 ))
                             }

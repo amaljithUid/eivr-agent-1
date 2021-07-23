@@ -17,7 +17,7 @@ function CCP() {
     const [callerHistory, setCallerHistory] = useState([]);
     const [realtimeTranscript, setRealtimeTranscript] = useState([]);
     const [sentiment, setSentiment] = useState('good');
-    const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
+    const [isUserAuthenticated, setIsUserAuthenticated] = useState(true);
     const [contactId, setcontactId] = useState('');
     function handleAccountLookup(event,account,zip){
         event.preventDefault();
@@ -265,7 +265,7 @@ function CCP() {
                 "authenticated": true
             }
         ]
-        //setCallerHistory(callerHistoryData);
+        setCallerHistory(callerHistoryData);
         const calltraceRecordArray = [
             "START - PHONE CALL STARTED , scenario - regular, country code : +1 , Phone Event Time : 2021-07-16T11:19:06.000Z",
             "PHONEPROCESSING - phone processing complete , Phone Event Time : 2021-07-16T11:19:08.000Z",
@@ -279,7 +279,7 @@ function CCP() {
             "MAINMENUSTART - main menu start , Phone Event Time : 2021-07-16T11:20:10.000Z",
             "MAINMENUSTART - main menu start , Phone Event Time : 2021-07-16T11:20:44.000Z"
         ]
-        //setCallTraceRecord(calltraceRecordArray);
+        setCallTraceRecord(calltraceRecordArray);
         const callTRanscript = [
             {
                 "Transcript": {
@@ -418,14 +418,18 @@ function CCP() {
                 <div className="dashboard-box">
                     <h1><b>EIVR</b>Agent Dashboard</h1>
                     <div className="service-call-box">
-                        <button>
+                        <a href="#">
                             <span className="icon icon-keyboard-open"></span>
                             <label for="">CCB CRM</label>
-                        </button>
-                        <button>
+                        </a>
+                        <a href="#">
                             <span className="icon icon-bookmark"></span>
                             <label for="">Knowledge Center</label>
-                        </button>
+                        </a>
+                        <a href="#">
+                            <span className="icon icon-bookmark"></span>
+                            <label for="">Feedback</label>
+                        </a>
                     </div>
                     <div className="dashboard">
                         {

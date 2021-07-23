@@ -26,10 +26,15 @@ html, body{
 
 * {
     box-sizing: border-box;
+	text-decoration: none;
 }
 a{
 	text-decoration: none;
-	cursor: pointer;
+	cursor: pointer !important;
+	color: transparent !important;
+	*{
+		text-decoration: none;
+	}
 }
 button{
 	background: none;
