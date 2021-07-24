@@ -39,6 +39,7 @@ function CCP() {
     }
     const logout = (e) => {                  
         e.preventDefault();
+        clearInterval(launch.current);
         fetch("https://nlu-musi.awsapps.com/connect/logout", { credentials: 'include', mode: 'no-cors'})
         .then(() => {
             // eslint-disable-next-line no-undef
@@ -62,6 +63,7 @@ function CCP() {
           setSentiment(data[data.length].Sentiment);
         });
     }
+    
     const fetchItems = () => {
         var ccpURL = `https://nlu-musi.awsapps.com/connect/ccp-v2/`;
         ccpURL = `${ccpURL}softphone`;
@@ -423,8 +425,12 @@ function CCP() {
                       console.log(data);
                       setCallerHistory(data);
                     });
-                    clearInterval(launch.current);
-                    launch.current = setInterval(getTranscript(data.contactId), 10*1000);
+                    setTimeout(() => {
+                        clearInterval(launch.current);
+                        launch.current = setInterval(() => {
+                            getTranscript(data.contactId)
+                        }, 15*1000);
+                    }, 60*1000);
                 });
             });
             contact.onDestroy(function(contact) {
