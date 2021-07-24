@@ -320,7 +320,7 @@ p {
 
                             .card-body {
                                 // display: none;
-                                padding:$defaut-margin - 2.5  $defaut-padding*1.5;
+                                padding: $defaut-margin - 2.5 $defaut-padding*1.5;
                                 margin-left: $defaut-margin*4.6;
                                 margin-right: $defaut-margin*5;
                                 margin-bottom: $defaut-margin*2.5;
@@ -338,23 +338,25 @@ p {
                                     .data-details {
                                         margin: $defaut-margin - 2.5 $defaut-margin*1.5;
                                         margin-bottom: $null;
-                                        &:first-child{
+
+                                        &:first-child {
                                             margin-left: $null;
                                         }
 
                                         label {
                                             @include typo(14px, 30px, normal, $typo-color, normal);
                                             text-transform: uppercase;
-                                            
+
                                             // margin-bottom: $defaut-margin;
-                                            
+
                                         }
 
                                         h3 {
                                             @include typo(16px, 30px, normal, $black-color, 500);
                                             margin-bottom: $defaut-margin*1.5;
                                             position: relative;
-                                            &::before{
+
+                                            &::before {
                                                 content: '';
                                                 display: block;
                                                 @include v-center();
@@ -386,6 +388,63 @@ p {
                                                     @include typo(16px, 30px, normal, darken($theme-60-color, 10%), normal);
                                                 }
 
+                                            }
+                                        }
+                                    }
+
+                                    &.auth-box{
+                                        .data-details {
+                                            width: $full;
+                                            max-width: $full/4;
+                                            margin: $null;
+                                            border: thin solid lighten($theme-60-color, 1%);
+                                            border-top: none;
+                                            border-bottom: none;
+
+
+
+                                            label {
+                                                padding-left: $defaut-padding*1.5;
+                                                padding-right: $defaut-padding*1.5;
+                                                padding-bottom: $defaut-padding - 2.5;
+                                                // display: none;
+                                                position: relative;
+
+                                                &::before {
+                                                    content: '';
+                                                    display: block;
+                                                    @include v-center();
+                                                    width: $default-unit*10;
+                                                    height: $default-unit;
+                                                    background-color: $secondary-color;
+                                                    top: $full;
+                                                }
+                                            }
+
+                                            &:first-child {
+                                                border: none;
+                                                // border-bottom: thin solid lighten($theme-60-color, 1%);
+
+                                            }
+
+                                            &:last-child {
+                                                border-top: none;
+                                                border-right: none;
+                                                // border-bottom: thin solid lighten($theme-60-color, 1%);
+
+                                            }
+
+
+                                            h3 {
+                                                padding-left: $defaut-padding*1.5;
+                                                padding-right: $defaut-padding*1.5;
+                                                padding-top: $defaut-padding - 2.5;
+                                                padding-bottom: $defaut-padding - 2.5;
+                                                margin-bottom: $null;
+
+                                                &::before {
+                                                    display: none;
+                                                }
                                             }
                                         }
                                     }
@@ -432,7 +491,7 @@ p {
 
 
                                                     // &::first-letter {
-                                                       @include typo(16px, 24px, normal, $typo-color, normal);
+                                                    @include typo(16px, 24px, normal, $typo-color, normal);
 
                                                     // }
                                                 }
@@ -472,7 +531,7 @@ p {
 
 
                                                     //&::first-letter {
-                                                        @include typo(16px, 24px, normal, $typo-color, normal);
+                                                    @include typo(16px, 24px, normal, $typo-color, normal);
 
                                                     //}
                                                 }
@@ -521,6 +580,148 @@ p {
                                         }
                                     }
 
+                                    &.customer-details {
+
+
+                                        .data-details {
+                                            width: $full;
+                                            max-width: $full/4;
+                                            margin: $null;
+                                            border: thin solid lighten($theme-60-color, 1%);
+                                            border-top: none;
+                                            border-bottom: none;
+
+
+
+                                            label {
+                                                padding-left: $defaut-padding*1.5;
+                                                padding-right: $defaut-padding*1.5;
+                                                padding-bottom: $defaut-padding - 2.5;
+                                                display: none;
+                                                position: relative;
+
+                                                &::before {
+                                                    content: '';
+                                                    display: block;
+                                                    @include v-center();
+                                                    width: $default-unit*10;
+                                                    height: $default-unit;
+                                                    background-color: $secondary-color;
+                                                    top: $full;
+                                                }
+                                            }
+
+                                            &:first-child {
+                                                border: none;
+                                                // border-bottom: thin solid lighten($theme-60-color, 1%);
+
+                                            }
+
+                                            &:last-child {
+                                                border-top: none;
+                                                border-right: none;
+                                                // border-bottom: thin solid lighten($theme-60-color, 1%);
+
+                                            }
+
+
+                                            h3 {
+                                                padding-left: $defaut-padding*1.5;
+                                                padding-right: $defaut-padding*1.5;
+                                                padding-top: $defaut-padding - 2.5;
+                                                padding-bottom: $defaut-padding - 2.5;
+                                                margin-bottom: $null;
+
+                                                &::before {
+                                                    display: none;
+                                                }
+                                            }
+                                        }
+
+                                        &:first-child {
+                                            .data-details {
+                                                margin: $defaut-margin - 2.5 $null;
+                                                margin-bottom: $null;
+
+                                                label {
+                                                    display: block;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &.call-history {
+
+
+                                        .data-details {
+                                            width: $full;
+                                            max-width: $full/3;
+                                            margin: $null;
+                                            border: thin solid lighten($theme-60-color, 1%);
+                                            border-top: none;
+                                            // border-bottom: none;
+
+
+
+                                            label {
+                                                padding-left: $defaut-padding*1.5;
+                                                padding-right: $defaut-padding*1.5;
+                                                padding-bottom: $defaut-padding - 2.5;
+                                                display: none;
+                                                position: relative;
+
+                                                &::before {
+                                                    content: '';
+                                                    display: block;
+                                                    @include v-center();
+                                                    width: $default-unit*10;
+                                                    height: $default-unit;
+                                                    background-color: $secondary-color;
+                                                    top: $full;
+                                                }
+                                            }
+
+                                            &:first-child {
+                                                border: none;
+                                                border-bottom: thin solid lighten($theme-60-color, 1%);
+
+                                            }
+
+                                            &:last-child {
+                                                border-top: none;
+                                                border-right: none;
+                                                border-bottom: thin solid lighten($theme-60-color, 1%);
+
+                                            }
+
+
+                                            h3 {
+                                                padding-left: $defaut-padding*1.5;
+                                                padding-right: $defaut-padding*1.5;
+                                                padding-top: $defaut-padding - 2.5;
+                                                padding-bottom: $defaut-padding - 2.5;
+                                                margin-bottom: $null;
+
+                                                &::before {
+                                                    display: none;
+                                                }
+                                            }
+                                        }
+
+                                        &:first-child {
+                                            .data-details {
+                                                margin: $defaut-margin - 2.5 $null;
+                                                margin-bottom: $null;
+
+                                                label {
+                                                    display: block;
+                                                }
+                                            }
+                                        }
+
+
+                                    }
+
                                 }
                             }
 
@@ -542,7 +743,8 @@ p {
                     padding-top: $defaut-padding*1.5;
                     margin-bottom: $defaut-margin*2;
 
-                    button,a {
+                    button,
+                    a {
                         @include flex-child(row);
                         @include justify-content(space-between);
                         @include align-items(center);
@@ -556,6 +758,7 @@ p {
                         margin-right: $defaut-margin*1.5;
                         text-align: center;
                         cursor: pointer;
+
                         .icon {
                             font-size: 28px;
                             color: $white-color;

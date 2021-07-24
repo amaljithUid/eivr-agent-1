@@ -29,7 +29,7 @@ const Example = (props) => {
                     <Accordion.Collapse eventKey="0">
                         <Card.Body>
                             {props.isUserAuth
-                                ? <div className="fetch-data">
+                                ? <div className="fetch-data auth-box">
                                     <div className="data-details">
                                         <label for="">Account Number</label>
                                         <h3>{props.accountdetails.accountNumber ? props.accountdetails.accountNumber : '--'}</h3>
@@ -83,7 +83,7 @@ const Example = (props) => {
 
                     <Accordion.Collapse eventKey="1">
                         <Card.Body>
-                            <div className="fetch-data">
+                            <div className="fetch-data customer-details">
                                 <div className="data-details">
                                     <label for="">Account Status</label>
                                     <h3>{props.customerdetails.accountStatus ? props.customerdetails.accountStatus : '--'}</h3>
@@ -143,7 +143,7 @@ const Example = (props) => {
                         <Card.Body>
                             {
                                 callerHistoryArray.map(item => (
-                                    <div className="fetch-data">
+                                    <div className="fetch-data call-history">
                                         <div className="data-details">
                                             <label for="">Phone Number</label>
                                             <h3>{item.phoneNumber ? item.phoneNumber : '--'}</h3>
