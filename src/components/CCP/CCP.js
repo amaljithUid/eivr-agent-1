@@ -71,7 +71,7 @@ function CCP() {
             "pastAmountDue": "$0.00",
             "currentAmountDue": "$0.00"
         }
-        setAccountDetails(accountDetailResponse);
+        //setAccountDetails(accountDetailResponse);
         const details ={
           "contactId": "90ead137-083d-4349-8703-a58f4864c5ff",
           "phoneNumber": "86075980081234",
@@ -291,7 +291,7 @@ function CCP() {
                 "authenticated": true
             }
         ]
-        setCallerHistory(callerHistoryData);
+        //setCallerHistory(callerHistoryData);
         const calltraceRecordArray = [
             "START - PHONE CALL STARTED , scenario - regular, country code : +1 , Phone Event Time : 2021-07-16T11:19:06.000Z",
             "PHONEPROCESSING - phone processing complete , Phone Event Time : 2021-07-16T11:19:08.000Z",
@@ -305,7 +305,7 @@ function CCP() {
             "MAINMENUSTART - main menu start , Phone Event Time : 2021-07-16T11:20:10.000Z",
             "MAINMENUSTART - main menu start , Phone Event Time : 2021-07-16T11:20:44.000Z"
         ]
-        setCallTraceRecord(calltraceRecordArray);
+        //setCallTraceRecord(calltraceRecordArray);
         const callTRanscript = [
             {
                 "Transcript": {
@@ -363,7 +363,7 @@ function CCP() {
                 }
             }
         ]
-        setRealtimeTranscript(callTRanscript);
+        //setRealtimeTranscript(callTRanscript);
 
 
         // eslint-disable-next-line no-undef
