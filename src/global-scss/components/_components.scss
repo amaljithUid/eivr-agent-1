@@ -31,7 +31,9 @@ p {
                 @include flex-item(0, 0, $default-unit*212);
 
                 img {
-                    margin: $defaut-margin*2.5 $null;
+                    // margin: $defaut-margin*2.5 $null;
+                    margin-bottom: $defaut-margin*1.5;
+                    margin-top: $defaut-margin*1.5;
                 }
 
                 .connect-widget {
